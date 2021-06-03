@@ -6,7 +6,6 @@ import SideBarMenu from "./SideBarMenu";
 
 import CustomerList from "./CustomerList";
 
-import Cards from "./Cards";
 
 function Dashboard() {
   return (
@@ -17,11 +16,9 @@ function Dashboard() {
         <div class="row">
           <SideBarMenu />
 
-          <Cards>
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <CustomerList />
           </main>
-          </Cards>
 
         </div>
       </div>
