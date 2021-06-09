@@ -8,6 +8,8 @@ import SideBarMenu from "./SideBarMenu";
 
 import Cards from "./cards/Cards";
 
+import NewProduct from "./products/NewProduct";
+
 function Dashboard() {
   return (
     <div>
@@ -22,8 +24,11 @@ function Dashboard() {
               <h1 className="h2">Dashboard</h1>
             </div>
 
-            <Cards name = "Apple" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = '1250'/>
-            <Cards name = "Samsung" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = '1050'/>
+            <NewProduct />
+            <div></div>
+
+            <Cards name = "Apple" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = "1250" quantity = "25"/>
+            <Cards name = "Samsung" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = '1050' quantity = "30"/>
           </main>
         </div>
       </div>
