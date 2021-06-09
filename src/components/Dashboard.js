@@ -1,3 +1,5 @@
+import React from 'react';
+
 import "./Dashboard.css";
 
 import HeaderList from "./HeaderList";
