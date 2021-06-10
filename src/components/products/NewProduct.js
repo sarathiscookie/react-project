@@ -3,9 +3,18 @@ import React from "react";
 import "./NewProduct.css";
 
 function NewProduct() {
-  
+
+  // Note: default datatype of e.target is string.
   const productNameEventHandler = (e) => {
     console.log(e.target.value);
+  }
+
+  const quantityEventHandler = (e) => {
+    console.log(e.target.value);
+  }
+
+  const descriptionEventHandler = event => {
+    console.log(event.target.value);
   }
 
   return (
@@ -19,13 +28,13 @@ function NewProduct() {
                 <label className="form-label">
                   Product Name
                 </label>
-                <input type="text" className="form-control" id="product" onInput={productNameEventHandler}/>
+                <input type="text" className="form-control" id="product" onInput={productNameEventHandler} />
               </div>
               <div className="mb-3">
                 <label className="form-label">
                  Quantity
                 </label>
-                <input type="text" className="form-control" id="quantity" />
+                <input type="text" className="form-control" id="quantity" onInput={quantityEventHandler} />
               </div>
               <div className="mb-3">
                 <label className="form-label">
@@ -35,6 +44,7 @@ function NewProduct() {
                   className="form-control"
                   id="description"
                   rows="3"
+                  onInput={descriptionEventHandler}
                 ></textarea>
               </div>
               <button className="btn btn-primary">Create Product</button>
