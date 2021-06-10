@@ -1,20 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./NewProduct.css";
 
 function NewProduct() {
 
-  // Note: default datatype of e.target is string.
+  // Note: default datatype of e.target.value always string. That's why useState('') defined ''.
+
+  const [productname, productNameNew] = useState('');
+  const [quantity, quantityNew] = useState('');
+  const [description, descriptionNew] = useState('');
+
   const productNameEventHandler = (e) => {
-    console.log(e.target.value);
+    productNameNew(e.target.value);
   }
 
   const quantityEventHandler = (e) => {
-    console.log(e.target.value);
+    quantityNew(e.target.value);
   }
 
   const descriptionEventHandler = event => {
-    console.log(event.target.value);
+    descriptionNew(event.target.value);
   }
 
   return (
@@ -48,6 +53,9 @@ function NewProduct() {
                 ></textarea>
               </div>
               <button className="btn btn-primary">Create Product</button>
+              <span>{productname}</span>
+              <span>{quantity}</span>
+              <span>{description}</span>
           </form>
 
         </div>
