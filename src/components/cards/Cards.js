@@ -6,7 +6,7 @@ function Cards(props) {
 
   const [price, setPrice] = useState(props.price);
 
-  const calculatePrice = () => {
+  const calculatePriceHandler = () => {
     setPrice(props.price * props.quantity);
   }
 
@@ -21,7 +21,7 @@ function Cards(props) {
           Description: {props.description}
         </div>
         <div className="card-footer">
-          <button className="btn btn-primary btn-sm" onClick={calculatePrice}>Calculate Price</button>
+          <button className="btn btn-primary btn-sm" onClick={calculatePriceHandler}>Calculate Price</button>
         </div>
       </div>
       
