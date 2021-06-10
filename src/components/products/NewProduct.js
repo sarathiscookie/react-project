@@ -3,6 +3,11 @@ import React from "react";
 import "./NewProduct.css";
 
 function NewProduct() {
+  
+  const productNameEventHandler = (e) => {
+    console.log(e.target.value);
+  }
+
   return (
     <div>
       <div className="card cardBottom">
@@ -14,7 +19,7 @@ function NewProduct() {
                 <label className="form-label">
                   Product Name
                 </label>
-                <input type="text" className="form-control" id="product" />
+                <input type="text" className="form-control" id="product" onInput={productNameEventHandler}/>
               </div>
               <div className="mb-3">
                 <label className="form-label">
@@ -33,7 +38,6 @@ function NewProduct() {
                 ></textarea>
               </div>
               <button className="btn btn-primary">Create Product</button>
-              
           </form>
 
         </div>
