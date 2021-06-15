@@ -22,13 +22,27 @@ function NewProduct() {
     descriptionNew(event.target.value);
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const formData = {
+      productName: productname,
+      productQuantity: quantity,
+      productDescription: description
+    }
+    
+    console.log(formData);
+  }
+
+  
+
   return (
     <div>
       <div className="card cardBottom">
         <div className="card-header">Add Product</div>
         <div className="card-body">
 
-          <form>
+          <form onSubmit={submitHandler}>
               <div className="mb-3">
                 <label className="form-label">
                   Product Name
@@ -53,9 +67,6 @@ function NewProduct() {
                 ></textarea>
               </div>
               <button className="btn btn-primary">Create Product</button>
-              <span>{productname}</span>
-              <span>{quantity}</span>
-              <span>{description}</span>
           </form>
 
         </div>
