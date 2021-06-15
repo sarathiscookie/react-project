@@ -30,11 +30,13 @@ function NewProduct() {
       productQuantity: quantity,
       productDescription: description
     }
-    
+
+    productNameNew('');
+    quantityNew('');
+    descriptionNew('');
+
     console.log(formData);
   }
-
-  
 
   return (
     <div>
@@ -47,13 +49,13 @@ function NewProduct() {
                 <label className="form-label">
                   Product Name
                 </label>
-                <input type="text" className="form-control" id="product" onInput={productNameEventHandler} />
+                <input type="text" className="form-control" id="product" value={productname} onInput={productNameEventHandler} />
               </div>
               <div className="mb-3">
                 <label className="form-label">
                  Quantity
                 </label>
-                <input type="text" className="form-control" id="quantity" onInput={quantityEventHandler} />
+                <input type="text" className="form-control" id="quantity" value={quantity} onInput={quantityEventHandler} />
               </div>
               <div className="mb-3">
                 <label className="form-label">
@@ -63,6 +65,7 @@ function NewProduct() {
                   className="form-control"
                   id="description"
                   rows="3"
+                  value={description}
                   onInput={descriptionEventHandler}
                 ></textarea>
               </div>
