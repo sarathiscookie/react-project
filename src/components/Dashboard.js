@@ -6,9 +6,7 @@ import HeaderList from "./HeaderList";
 
 import SideBarMenu from "./SideBarMenu";
 
-import Cards from "./cards/Cards";
-
-import NewProduct from "./products/NewProduct";
+import Product from "./products/Product";
 
 function Dashboard() {
   return (
@@ -24,11 +22,8 @@ function Dashboard() {
               <h1 className="h2">Dashboard</h1>
             </div>
 
-            <NewProduct />
-            <div></div>
-
-            <Cards name = "Apple" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = "1250" quantity = "25"/>
-            <Cards name = "Samsung" description = "Some quick example text to build on the card title and make up the bulk of the card's content." price = '1050' quantity = "30"/>
+            <Product />
+            
           </main>
         </div>
       </div>

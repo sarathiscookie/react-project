@@ -1,25 +1,27 @@
 import React, {useState} from "react";
 
-import "./NewProduct.css";
+import "./ProductForm.css";
 
-function NewProduct() {
+function ProductForm(props) {
 
   // Note: default datatype of e.target.value always string. That's why useState('') defined ''.
+ console.log(props.descriptionEventHandler)
+  const [productname, setProductName] = useState('');
 
-  const [productname, productNameNew] = useState('');
-  const [quantity, quantityNew] = useState('');
-  const [description, descriptionNew] = useState('');
+  const [quantity, setQuantity] = useState('');
+
+  const [description, setDescription] = useState('');
 
   const productNameEventHandler = (e) => {
-    productNameNew(e.target.value);
+    setProductName(e.target.value);
   }
 
   const quantityEventHandler = (e) => {
-    quantityNew(e.target.value);
+    setQuantity(e.target.value);
   }
 
   const descriptionEventHandler = event => {
-    descriptionNew(event.target.value);
+    setDescription(event.target.value);
   }
 
   const submitHandler = (e) => {
@@ -31,11 +33,11 @@ function NewProduct() {
       productDescription: description
     }
 
-    productNameNew('');
-    quantityNew('');
-    descriptionNew('');
+    setProductName('');
+    setQuantity('');
+    setDescription('');
 
-    console.log(formData);
+    props.NewProduct(formData);
   }
 
   return (
@@ -78,4 +80,4 @@ function NewProduct() {
   );
 }
 
-export default NewProduct;
+export default ProductForm;
