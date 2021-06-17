@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import ProductStore from './ProductStore';
 
+import Cards from '../cards/Cards';
+
 function Product(props) {
   const [price, setPrice] = useState('');
 
@@ -21,7 +23,7 @@ function Product(props) {
     <div>
       <ProductStore />
 
-      <div className="card text-dark bg-light mb-3 maxWidthClass">
+      <Cards>
         <div className="card-header">Product List</div>
         <div className="card-body">
           <h6 className="card-title">{product.name}</h6>
@@ -39,7 +41,7 @@ function Product(props) {
           </button>
           <span>{price}</span>
         </div>
-      </div>
+      </Cards>
 
     </div>
   );

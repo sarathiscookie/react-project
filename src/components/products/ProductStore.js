@@ -4,9 +4,9 @@ import ProductCreate from "./ProductCreate";
 
 function ProductStore() {
 
-  const storeProductDataHandler = (product) => {
+  const storeProductDataHandler = productDetails => {
     const productData = {
-      ...product,
+      ...productDetails,
       id: Math.random().toString()
     };
     console.log(productData);
