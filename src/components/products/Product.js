@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-import "./Product.css";
+import ProductStore from './ProductStore';
 
 function Product(props) {
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState('');
 
   const product = {
     name: "Iphone 12",
+    quantity: 5,
     price: 95000,
     tax: 1000,
     description: "Mobile",
@@ -18,11 +19,14 @@ function Product(props) {
 
   return (
     <div>
+      <ProductStore />
+
       <div className="card text-dark bg-light mb-3 maxWidthClass">
-        <div className="card-header">Product</div>
+        <div className="card-header">Product List</div>
         <div className="card-body">
           <h6 className="card-title">{product.name}</h6>
-          <h6>TAX: ${product.tax}</h6>
+          <h6>Quantity: ${product.quantity}</h6>
+          <h6>Tax: ${product.tax}</h6>
           <h6>Price: ${product.price}</h6>
           <h6>Description: {product.description}</h6>
         </div>
@@ -36,6 +40,7 @@ function Product(props) {
           <span>{price}</span>
         </div>
       </div>
+
     </div>
   );
 }

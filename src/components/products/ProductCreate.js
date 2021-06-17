@@ -1,14 +1,16 @@
 import React, {useState} from "react";
 
-import "./ProductForm.css";
+import "./ProductCreate.css";
 
-function ProductForm(props) {
+function ProductCreate(props) {
 
   // Note: default datatype of e.target.value always string. That's why useState('') defined ''.
- console.log(props.descriptionEventHandler)
+
   const [productname, setProductName] = useState('');
 
   const [quantity, setQuantity] = useState('');
+
+  const [price, setPrice] = useState('');
 
   const [description, setDescription] = useState('');
 
@@ -18,6 +20,10 @@ function ProductForm(props) {
 
   const quantityEventHandler = (e) => {
     setQuantity(e.target.value);
+  }
+
+  const priceEventHandler = event => {
+    setPrice(event.target.value);
   }
 
   const descriptionEventHandler = event => {
@@ -30,14 +36,16 @@ function ProductForm(props) {
     const formData = {
       productName: productname,
       productQuantity: quantity,
+      priceQuantity: price,
       productDescription: description
     }
 
+    props.onSaveProductData(formData);
+
     setProductName('');
     setQuantity('');
+    setPrice('');
     setDescription('');
-
-    props.NewProduct(formData);
   }
 
   return (
@@ -61,6 +69,12 @@ function ProductForm(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label">
+                 Price
+                </label>
+                <input type="text" className="form-control" id="price" value={price} onInput={priceEventHandler} />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">
                   Description
                 </label>
                 <textarea
@@ -80,4 +94,4 @@ function ProductForm(props) {
   );
 }
 
-export default ProductForm;
+export default ProductCreate;

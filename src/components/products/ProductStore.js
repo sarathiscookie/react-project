@@ -1,22 +1,22 @@
 import React from "react";
 
-import ProductForm from "./ProductCreate";
+import ProductCreate from "./ProductCreate";
 
-function NewProduct() {
+function ProductStore() {
 
-  const saveProductHandler = (product) => {
+  const storeProductDataHandler = (product) => {
     const productData = {
-      ...product
+      ...product,
+      id: Math.random().toString()
     };
-
     console.log(productData);
-  }
+  };
 
   return (
     <div>
-      <ProductForm productDetails={saveProductHandler}/>
+      <ProductCreate onSaveProductData={storeProductDataHandler}/>
     </div>
   );
 }
 
-export default NewProduct;
+export default ProductStore;
