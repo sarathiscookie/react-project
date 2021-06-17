@@ -1,48 +1,38 @@
 import React, { useState } from "react";
 
-import ProductStore from './ProductStore';
+import ProductStore from "./ProductStore";
 
-import Cards from '../cards/Cards';
+import ProductList from "./ProductList";
 
 function Product(props) {
-  const [price, setPrice] = useState('');
-
-  const product = {
-    name: "Iphone 12",
-    quantity: 5,
-    price: 95000,
-    tax: 1000,
-    description: "Mobile",
-  };
-
-  const calculatePriceHandler = () => {
-    setPrice(product.price + product.tax);
-  };
+  const products = [
+    {
+      name: "Iphone 12",
+      quantity: 5,
+      price: 95000,
+      tax: 1000,
+      description: "Mobile",
+    },
+    {
+      name: "Samsung A3",
+      quantity: 4,
+      price: 55000,
+      tax: 1000,
+      description: "Mobile",
+    },
+    {
+      name: "Iphone 11",
+      quantity: 2,
+      price: 65000,
+      tax: 1000,
+      description: "Mobile",
+    }
+  ];
 
   return (
     <div>
       <ProductStore />
-
-      <Cards>
-        <div className="card-header">Product List</div>
-        <div className="card-body">
-          <h6 className="card-title">{product.name}</h6>
-          <h6>Quantity: ${product.quantity}</h6>
-          <h6>Tax: ${product.tax}</h6>
-          <h6>Price: ${product.price}</h6>
-          <h6>Description: {product.description}</h6>
-        </div>
-        <div className="card-footer">
-          <button
-            className="btn btn-primary btn-sm"
-            onClick={calculatePriceHandler}
-          >
-            Calculate Price
-          </button>
-          <span>{price}</span>
-        </div>
-      </Cards>
-
+      {products.map(product => <ProductList name={product.name} quantity={product.quantity} price={product.price} tax={product.tax} description={product.description} />)}
     </div>
   );
 }
