@@ -6,7 +6,7 @@ function ProductCreate(props) {
 
   // Note: default datatype of e.target.value always string. That's why useState('') defined ''.
 
-  const [productname, setProductName] = useState('');
+  const [name, setName] = useState('');
 
   const [quantity, setQuantity] = useState('');
 
@@ -15,7 +15,7 @@ function ProductCreate(props) {
   const [description, setDescription] = useState('');
 
   const productNameEventHandler = (e) => {
-    setProductName(e.target.value);
+    setName(e.target.value);
   }
 
   const quantityEventHandler = (e) => {
@@ -34,15 +34,15 @@ function ProductCreate(props) {
     e.preventDefault();
 
     const formData = {
-      productName: productname,
-      productQuantity: quantity,
-      priceQuantity: price,
-      productDescription: description
+      name: name,
+      quantity: quantity,
+      price: price,
+      description: description
     }
 
     props.onSaveProductData(formData);
 
-    setProductName('');
+    setName('');
     setQuantity('');
     setPrice('');
     setDescription('');
@@ -59,7 +59,7 @@ function ProductCreate(props) {
                 <label className="form-label">
                   Product Name
                 </label>
-                <input type="text" className="form-control" id="product" value={productname} onInput={productNameEventHandler} />
+                <input type="text" className="form-control" id="name" value={name} onInput={productNameEventHandler} />
               </div>
               <div className="mb-3">
                 <label className="form-label">

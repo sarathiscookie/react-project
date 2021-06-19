@@ -2,14 +2,16 @@ import React from "react";
 
 import ProductCreate from "./ProductCreate";
 
-function ProductStore() {
+function ProductStore(props) {
 
   const storeProductDataHandler = productDetails => {
+    
     const productData = {
       ...productDetails,
       id: Math.random().toString()
     };
-    console.log(productData);
+
+    props.onAddProduct(productData);
   };
 
   return (
