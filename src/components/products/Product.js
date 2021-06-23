@@ -40,10 +40,16 @@ function Product() {
     });
   };
 
+  let content = <p>No items found</p>;
+
+  if (products.length > 0) {
+    content = products.map(item => <ProductList key={item.id} name={item.name} quantity={item.quantity} price={item.price} tax={item.tax} description={item.description} />);
+  }
+
   return (
     <div>
       <ProductStore onAddProduct={addProductHandler} />
-      {products.map(item => <ProductList key={item.id} name={item.name} quantity={item.quantity} price={item.price} tax={item.tax} description={item.description} />)}
+      {content}
     </div>
   );
 }
