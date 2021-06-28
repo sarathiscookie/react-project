@@ -8,6 +8,8 @@ import SideBarMenu from "./SideBarMenu";
 
 import Product from "./products/Product";
 
+import User from "./users/User";
+
 function Dashboard() {
   return (
     <div>
@@ -22,7 +24,9 @@ function Dashboard() {
               <h1 className="h2">Dashboard</h1>
             </div>
 
-            <Product />
+            {/* <Product /> */}
+
+            <User />
             
           </main>
         </div>
