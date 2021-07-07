@@ -31,6 +31,7 @@ function Dashboard() {
           </main>
         </div>
       </div>
+      
     </div>
   );
 }
