@@ -11,6 +11,8 @@ export default function AddUser() {
 
   const [lastName, setLastName] = useState('');
 
+  const [age, setAge] = useState('');
+
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
@@ -23,8 +25,23 @@ export default function AddUser() {
 
   const userFormEventHandler = (event) => {
     event.preventDefault();
+
+    if(firstName.trim().length === 0 || lastName.trim().length === 0 || age.trim().length === 0 || age < 1 || email.trim().length === 0 || password.trim().length === 0 || city.trim().length === 0 || state.trim().length === 0 || zip.trim().length === 0) {
+        return;
+    }
+
+    console.log(firstName, lastName, age, email, password, city, state, zip);
+
     console.log("Form Submitted");
-    console.log(firstName, lastName, email, password, city, state, zip);
+
+    setFirstName('');
+    setLastName('');
+    setAge('');
+    setEmail('');
+    setPassword('');
+    setCity('');
+    setState('');
+    setZip('');
   };
 
   const firstNameEventHandler = (event) => {
@@ -35,25 +52,29 @@ export default function AddUser() {
     setLastName(event.target.value);
   };
 
+  const ageEventHandler = (event) => {
+      setAge(event.target.value);
+  };
+
   const emailEventhandler = (event) => {
       setEmail(event.target.value);
-  }
+  };
 
   const passwordhandler = (event) => {
       setPassword(event.target.value);
-  }
+  };
 
   const cityEventHandler = (event) => {
       setCity(event.target.value);
-  }
+  };
 
   const stateEventHandler = (event) => {
       setState(event.target.value);
-  }
+  };
 
   const zipEventHandler = (event) => {
       setZip(event.target.value);
-  }
+  };
 
   return (
     <div>
@@ -66,6 +87,7 @@ export default function AddUser() {
                 className="form-control"
                 placeholder="First name"
                 id="firstName"
+                value={firstName}
                 onChange={firstNameEventHandler}
               />
             </div>
@@ -75,7 +97,18 @@ export default function AddUser() {
                 className="form-control"
                 placeholder="Last name"
                 id="lastName"
+                value={lastName}
                 onChange={lastNameEventHandler}
+              />
+            </div>
+            <div className="col">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Age"
+                id="age"
+                value={age}
+                onChange={ageEventHandler}
               />
             </div>
           </div>
@@ -87,6 +120,7 @@ export default function AddUser() {
                 className="form-control"
                 placeholder="Email"
                 id="email"
+                value={email}
                 onChange={emailEventhandler}
               />
             </div>
@@ -96,6 +130,7 @@ export default function AddUser() {
                 className="form-control"
                 id="password"
                 placeholder="Password"
+                value={password}
                 onChange={passwordhandler}
               />
             </div>
@@ -108,11 +143,12 @@ export default function AddUser() {
                 className="form-control"
                 placeholder="City"
                 id="city"
+                value={city}
                 onChange={cityEventHandler}
               />
             </div>
             <div className="col-md-5">
-              <select id="state" className="form-control" onChange={stateEventHandler} >
+              <select id="state" className="form-control" value={state} onChange={stateEventHandler} >
                 <option>Choose State</option>
                 <option value="1">Cochin</option>
                 <option value="2">Trivandrum</option>
@@ -125,6 +161,7 @@ export default function AddUser() {
                 className="form-control"
                 id="zip"
                 placeholder="Zip"
+                value={zip}
                 onChange={zipEventHandler}
               />
             </div>
