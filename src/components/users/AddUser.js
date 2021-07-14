@@ -30,7 +30,7 @@ export default function AddUser() {
         return;
     }
 
-    console.log(firstName, lastName, age, email, password, city, state, zip);
+    console.log(firstName, lastName, +age, email, password, city, state, zip);
 
     console.log("Form Submitted");
 
