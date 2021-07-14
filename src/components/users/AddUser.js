@@ -6,7 +6,7 @@ import "./User.css";
 
 import Button from "./UI/Button";
 
-export default function AddUser() {
+export default function AddUser(props) {
   const [firstName, setFirstName] = useState('');
 
   const [lastName, setLastName] = useState('');
@@ -30,7 +30,19 @@ export default function AddUser() {
         return;
     }
 
-    console.log(firstName, lastName, +age, email, password, city, state, zip);
+    const formData = {
+      id: Math.random().toString(),
+      firstName: firstName, 
+      lastName: lastName, 
+      age: +age, 
+      email: email,
+      password: password,
+      city: city,
+      state: state, 
+      zip: zip
+    };
+
+    props.onAddUser(formData);
 
     console.log("Form Submitted");
 
