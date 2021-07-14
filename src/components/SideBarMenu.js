@@ -30,6 +30,12 @@ function SideBarMenu() {
             <li className="nav-item">
               <a className="nav-link" href="test">
                 <span data-feather="file"></span>
+                Customers
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="test">
+                <span data-feather="file"></span>
                 Orders
               </a>
             </li>
