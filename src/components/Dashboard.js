@@ -10,6 +10,8 @@ import Product from "./products/Product";
 
 import User from "./users/User";
 
+import Order from './orders/Order';
+
 function Dashboard() {
   return (
     <div>
@@ -26,8 +28,9 @@ function Dashboard() {
 
             {/* <Product /> */}
 
-            <User />
+            {/* <User /> */}
             
+            <Order />
           </main>
         </div>
       </div>
