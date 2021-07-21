@@ -6,7 +6,7 @@ import Button from "./UI/Button";
 
 import "./Order.css";
 
-export default function AddOrder() {
+export default function AddOrder(props) {
 
   const [orderPlacedDate, setOrderPlacedDate] = useState('');
 
@@ -58,6 +58,7 @@ export default function AddOrder() {
     }
 
     const formData = {
+        id: Math.random().toString(),
         orderPlacedDate: orderPlacedDate,
         amount: +amount,
         shippedTo: shippedTo,
@@ -66,7 +67,7 @@ export default function AddOrder() {
         paymentStatus: paymentStatus
     };
 
-    console.log(formData);
+    props.onAddOrder(formData);
 
     setOrderPlacedDate('');
     setAmount('');
